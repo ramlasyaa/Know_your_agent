@@ -1,0 +1,41 @@
+services:
+  # FastAPI Web Service
+  - type: web
+    name: kya-api
+    env: python
+    region: oregon
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "uvicorn app.main:app --host 0.0.0.0 --port $PORT"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: kya-postgres-db
+          property: connectionString
+      - key: HARD_AMOUNT_LIMIT
+        value: "1000.00"
+      - key: VELOCITY_WINDOW_MINUTES
+        value: "5"
+      - key: MAX_ACTIONS_PER_WINDOW
+        value: "5"
+
+  # Streamlit Dashboard Service
+  - type: web
+    name: kya-dashboard
+    env: python
+    region: oregon
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "streamlit run dashboard/streamlit_app.py --server.port=$PORT --server.address=0.0.0.0"
+    envVars:
+      - key: API_BASE_URL
+        fromService:
+          type: web
+          name: kya-api
+          property: host
+
+databases:
+  - name: kya-postgres-db
+    databaseName: kya_db
+    user: kya_user
+    plan: free
