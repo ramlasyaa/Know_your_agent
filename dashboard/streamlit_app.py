@@ -1,6 +1,4 @@
-"""Streamlit Dashboard for Know Your Agent - AI Agent Trust & Fraud Detection Layer.
-Theme: 25+ Shades of Burgundy Edition (Dusty Rose to Deep Berry Velvet) 🍷
-"""
+"""Streamlit Dashboard for Know Your Agent - AI Agent Trust & Fraud Detection Layer."""
 
 import os
 import time
@@ -12,8 +10,8 @@ import streamlit as st
 
 # Page Configuration
 st.set_page_config(
-    page_title="Know Your Agent | Burgundy Trust Inspector",
-    page_icon="🍷",
+    page_title="Know Your Agent",
+    page_icon="🛡️",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -21,9 +19,7 @@ st.set_page_config(
 # API Base URL configuration - Defaults to live production Render URL
 API_BASE_URL = os.getenv("API_BASE_URL", "https://know-your-agent.onrender.com")
 
-# Custom Burgundy Palette CSS Injector (Matching 25+ Shades Palette)
-# Shades: #FBF2F4 (Soft Mauve Light), #F5E6E9 (Rose Cream), #E8ADB8 (Dusty Rose), 
-# #C56B7B (Medium Rose), #A03C4F (Berry Burgundy), #801B2C (Deep Wine Burgundy), #5E0B1B (Rich Maroon)
+# Custom Burgundy Palette CSS Injector
 BURGUNDY_CSS = """
 <style>
     /* Global Light & Elegant Page Background */
@@ -155,8 +151,7 @@ def fetch_audit_trail(action_id):
 # Sidebar
 st.sidebar.markdown("""
 <div style="text-align: center; padding: 12px 0;">
-    <h2 style="color: #5E0B1B; margin: 0; font-size: 1.6rem; font-weight: 800;">🍷 Know Your Agent</h2>
-    <p style="color: #A03C4F; font-size: 0.85rem; margin-top: 4px; font-weight: 600;">Shades of Burgundy Palette Edition</p>
+    <h2 style="color: #5E0B1B; margin: 0; font-size: 1.6rem; font-weight: 800;">Know Your Agent</h2>
 </div>
 """, unsafe_allow_html=True)
 st.sidebar.divider()
@@ -172,8 +167,8 @@ st.sidebar.markdown("<h4 style='color: #801B2C;'>⚡ Agent Traffic Generator</h4
 sim_count = st.sidebar.number_input("Batch Size", min_value=5, max_value=100, value=25)
 sim_anomaly_rate = st.sidebar.slider("Anomaly Inject Ratio", 0.0, 1.0, 0.25, 0.05)
 
-if st.sidebar.button("🍷 Run Agent Simulation", use_container_width=True):
-    with st.spinner("Executing burgundy trust evaluations on live server..."):
+if st.sidebar.button("⚡ Run Agent Simulation", use_container_width=True):
+    with st.spinner("Executing trust evaluations on live server..."):
         try:
             from simulator.generator import AgentActionGenerator
             gen = AgentActionGenerator(anomaly_rate=sim_anomaly_rate)
@@ -191,7 +186,7 @@ if st.sidebar.button("🍷 Run Agent Simulation", use_container_width=True):
 # Title Banner
 st.markdown("""
 <div style="background: linear-gradient(135deg, #801B2C 0%, #A03C4F 50%, #C56B7B 100%); padding: 24px; border-radius: 16px; margin-bottom: 20px; box-shadow: 0 6px 20px rgba(128, 27, 44, 0.25);">
-    <h1 style="margin: 0; font-size: 2.3rem; color: #FFFFFF !important; font-weight: 800;">🍷 Know Your Agent — AI Trust & Fraud Layer</h1>
+    <h1 style="margin: 0; font-size: 2.3rem; color: #FFFFFF !important; font-weight: 800;">Know Your Agent — AI Trust & Fraud Layer</h1>
     <p style="margin: 8px 0 0 0; color: #FBF2F4; font-size: 1.05rem; font-weight: 500;">
         Isolation Forest Anomaly Scoring + Hard Rule Safeguards + SHAP Feature Explainability
     </p>
@@ -217,7 +212,7 @@ st.markdown("<br>", unsafe_allow_html=True)
 raw_actions = fetch_actions(flagged_only=flagged_filter, agent_id=agent_id_input if agent_id_input else None)
 
 if not raw_actions:
-    st.info("No actions recorded yet. Click **'🍷 Run Agent Simulation'** in the sidebar to generate live agent traffic!")
+    st.info("No actions recorded yet. Click **'⚡ Run Agent Simulation'** in the sidebar to generate live agent traffic!")
 else:
     # Prepare DataFrame for Table
     table_data = []
@@ -235,7 +230,7 @@ else:
         elif risk_lvl == "HIGH":
             badge = "🟠 HIGH"
         elif risk_lvl == "CRITICAL":
-            badge = "🍷 CRITICAL"
+            badge = "🔴 CRITICAL"
 
         table_data.append({
             "Action ID": act["id"],
@@ -265,7 +260,7 @@ else:
             height=380
         )
 
-        # Burgundy Palette Timeline Chart
+        # Timeline Chart
         st.subheader("📈 Risk Score Timeline")
 
         df_actions["Timestamp_dt"] = pd.to_datetime(df_actions["Timestamp"])
@@ -277,7 +272,7 @@ else:
             size=df_actions["Risk Score"].clip(lower=12),
             hover_data=["Agent ID", "Merchant", "Amount ($)"],
             color_discrete_map={"❌ FLAGGED": "#801B2C", "✅ CLEAN": "#2E7D32"},
-            title="Action Risk Timeline (Dusty Rose & Berry Highlights)"
+            title="Action Risk Timeline"
         )
         fig_scatter.add_hline(y=50.0, line_dash="dash", line_color="#A03C4F", annotation_text="Flag Threshold (50.0)")
         fig_scatter.update_layout(
