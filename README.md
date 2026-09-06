@@ -1,6 +1,6 @@
 # 🛡️ Know Your Agent (KYA) — AI Agent Trust & Fraud Detection Layer
 
-[![CI Pipeline](https://github.com/your-username/know-your-agent/actions/workflows/ci.yml/badge.svg)](https://github.com/your-username/know-your-agent/actions)
+[![CI Pipeline](https://github.com/ramlasyaa/Know_your_agent/actions/workflows/ci.yml/badge.svg)](https://github.com/ramlasyaa/Know_your_agent/actions)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.109.0-009688.svg?style=flat&logo=FastAPI&logoColor=white)](https://fastapi.tiangolo.com)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.31.0-FF4B4B.svg?style=flat&logo=Streamlit&logoColor=white)](https://streamlit.io)
 [![scikit-learn](https://img.shields.io/badge/scikit--learn-IsolationForest-F7931E.svg?style=flat&logo=scikit-learn&logoColor=white)](https://scikit-learn.org)
@@ -93,7 +93,7 @@ For core financial & agent trust applications, a **pure deep learning (e.g. Neur
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/know-your-agent.git
+git clone https://github.com/ramlasyaa/Know_your_agent.git
 cd know-your-agent
 
 # Build and launch all services in containers
