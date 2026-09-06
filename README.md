@@ -6,16 +6,10 @@
 [![scikit-learn](https://img.shields.io/badge/scikit--learn-IsolationForest-F7931E.svg?style=flat&logo=scikit-learn&logoColor=white)](https://scikit-learn.org)
 [![SHAP](https://img.shields.io/badge/Explainability-SHAP-blue.svg)](https://github.com/shap/shap)
 
+> **🚀 LIVE DEPLOYMENT**: [https://know-your-agent.onrender.com](https://know-your-agent.onrender.com)  
+> **📖 Interactive API Docs**: [https://know-your-agent.onrender.com/docs](https://know-your-agent.onrender.com/docs)  
 > **Hackathon Track**: AI Growth & Agentic Commerce  
 > **Target Domain**: Autonomous AI Shopping & Payment Agents acting on behalf of users.
-
----
-
-## 🌐 Live Demo & Interactive OpenAPI Docs
-
-- **Live Interactive OpenAPI Docs & Workflow**: [https://efb23b83f68718.lhr.life/docs](https://efb23b83f68718.lhr.life/docs)
-- **Live Health Endpoint**: [https://efb23b83f68718.lhr.life/health](https://efb23b83f68718.lhr.life/health)
-- **Live Action Scoring Endpoint**: `POST https://efb23b83f68718.lhr.life/score-action`
 
 ---
 
