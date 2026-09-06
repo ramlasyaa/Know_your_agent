@@ -13,9 +13,9 @@
 
 ## 🌐 Live Demo & Interactive OpenAPI Docs
 
-- **Live Interactive OpenAPI Docs & Workflow**: [https://3659720b83f119.lhr.life/docs](https://3659720b83f119.lhr.life/docs)
-- **Live Health Endpoint**: [https://3659720b83f119.lhr.life/health](https://3659720b83f119.lhr.life/health)
-- **Live Action Scoring Endpoint**: `POST https://3659720b83f119.lhr.life/score-action`
+- **Live Interactive OpenAPI Docs & Workflow**: [https://efb23b83f68718.lhr.life/docs](https://efb23b83f68718.lhr.life/docs)
+- **Live Health Endpoint**: [https://efb23b83f68718.lhr.life/health](https://efb23b83f68718.lhr.life/health)
+- **Live Action Scoring Endpoint**: `POST https://efb23b83f68718.lhr.life/score-action`
 
 ---
 
