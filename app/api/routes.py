@@ -19,11 +19,19 @@ from app.schemas.schemas import (
 )
 from app.scoring.engine import HybridRiskEngine
 
+from fastapi.responses import RedirectResponse
+
 logger = logging.getLogger(__name__)
 router = APIRouter()
 
 # Global Singleton Risk Engine instance
 risk_engine = HybridRiskEngine()
+
+
+@router.get("/", include_in_schema=False)
+async def root_redirect():
+    """Redirect root path to interactive OpenAPI /docs UI."""
+    return RedirectResponse(url="/docs")
 
 
 @router.post(
