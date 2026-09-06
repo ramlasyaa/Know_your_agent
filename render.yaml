@@ -1,41 +1,22 @@
 services:
-  # FastAPI Web Service
+  # Know Your Agent - Unified Web Service (Streamlit Visual UI + FastAPI Backend)
   - type: web
-    name: kya-api
+    name: know-your-agent
     env: python
     region: oregon
     plan: free
     buildCommand: "pip install -r requirements.txt"
-    startCommand: "uvicorn app.main:app --host 0.0.0.0 --port $PORT"
+    startCommand: "sh -c 'python -m uvicorn app.main:app --host 127.0.0.1 --port 8000 & streamlit run dashboard/streamlit_app.py --server.port $PORT --server.address 0.0.0.0'"
     envVars:
-      - key: DATABASE_URL
-        fromDatabase:
-          name: kya-postgres-db
-          property: connectionString
+      - key: API_BASE_URL
+        value: "http://127.0.0.1:8000"
       - key: HARD_AMOUNT_LIMIT
         value: "1000.00"
       - key: VELOCITY_WINDOW_MINUTES
         value: "5"
       - key: MAX_ACTIONS_PER_WINDOW
         value: "5"
-
-  # Streamlit Dashboard Service
-  - type: web
-    name: kya-dashboard
-    env: python
-    region: oregon
-    plan: free
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: "streamlit run dashboard/streamlit_app.py --server.port=$PORT --server.address=0.0.0.0"
-    envVars:
-      - key: API_BASE_URL
-        fromService:
-          type: web
-          name: kya-api
-          property: host
-
-databases:
-  - name: kya-postgres-db
-    databaseName: kya_db
-    user: kya_user
-    plan: free
+      - key: ANOMALY_SCORE_THRESHOLD
+        value: "65.0"
+      - key: LOG_LEVEL
+        value: "INFO"
