@@ -11,6 +11,14 @@
 
 ---
 
+## 🌐 Live Demo & Interactive OpenAPI Docs
+
+- **Live Interactive OpenAPI Docs & Workflow**: [https://3659720b83f119.lhr.life/docs](https://3659720b83f119.lhr.life/docs)
+- **Live Health Endpoint**: [https://3659720b83f119.lhr.life/health](https://3659720b83f119.lhr.life/health)
+- **Live Action Scoring Endpoint**: `POST https://3659720b83f119.lhr.life/score-action`
+
+---
+
 ## 📌 Problem Statement
 
 As autonomous AI agents (built on LLMs, LangChain, AutoGen, etc.) gain permission to make real-world transactions—such as booking orders, executing card payments, upgrading cloud subscriptions, and initiating API transfers—a critical security gap emerges:
